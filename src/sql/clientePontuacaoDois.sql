@@ -23,4 +23,4 @@ OPEN cur1;
 CLOSE cur1;
 
 END //
-DELIMITER ;
+DELIMITER;
