@@ -1,0 +1,8 @@
+Triggers são rotinas de código SQL que são executadas automaticamente em resposta a um evento específico de modificação de dados (INSERT, UPDATE ou DELETE) em uma tabela. 
+Eles são acionados antes ou depois da operação.
+
+Uso: 
+
+Automatização de tarefas, como a atualização de um campo de auditoria (por exemplo, last_updated_date) 
+ou a validação de dados antes de uma inserção para garantir a integridade.
+

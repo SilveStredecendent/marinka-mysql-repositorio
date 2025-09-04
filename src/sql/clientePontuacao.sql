@@ -9,6 +9,7 @@ DECLARE cur1 CURSOR FOR SELECT Cod_Cli, Renda_Cli FROM cliente;
 DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done = 1;
 
 OPEN cur1;
+DELIMITER //
 
   REPEAT
     FETCH cur1 INTO v_codigoCliente, v_rendaCliente;
