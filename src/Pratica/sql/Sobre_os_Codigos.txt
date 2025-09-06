@@ -1,0 +1,32 @@
+Explicação do Projeto
+
+Neste projeto foram criadas duas tabelas em um banco de dados para servir de base de treinamento
+dos principais recursos avançados de SQL, como procedures, functions, cursores e triggers.
+
+Estrutura das Tabelas
+
+Tabela cliente
+Contém informações básicas de clientes, como código, nome e renda.
+
+Tabela pontos
+Registra os pontos de fidelidade associados a cada cliente, ligados por chave estrangeira.
+
+Essas tabelas permitem simular situações do mundo real, como programas de pontos e reajuste de salários.
+
+Procedures Criadas
+
+clientePontuacao
+Atribui 1000 pontos para todos os clientes, sem considerar a renda.
+
+clientePontuacaoDois
+Atribui 1000 pontos apenas para clientes com renda abaixo de 1518, verificando a condição dentro do loop do cursor.
+
+clientePontuacaoTres
+Atribui 1000 pontos apenas para clientes de baixa renda, mas já faz o filtro diretamente no SELECT do cursor (mais otimizado que a versão anterior).
+
+aumentodesalario
+Aplica um reajuste de salários de forma diferenciada:
+
++30% para clientes com renda abaixo de 1518.
+
++5% para os demais clientes.

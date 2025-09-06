@@ -1,0 +1,9 @@
+Quando usar o quê (guia rápido)
+
+Preciso que algo aconteça toda vez que mexem numa tabela → Trigger
+
+Preciso iterar registro por registro (e não dá pra fazer em set-based) → Cursor
+
+Preciso de um fluxo de várias etapas/administrativo → Procedure
+
+Preciso de um cálculo reutilizável dentro do SQL → Function

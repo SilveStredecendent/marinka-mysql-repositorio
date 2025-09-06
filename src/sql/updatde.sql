@@ -1,1 +1,0 @@
-UPDATE cliente SET Renda_Cli = Renda_Cli * 1.3 WHERE Renda_Cli < 1518;

@@ -1,8 +1,0 @@
-Uma Function é similar a uma Procedure, mas tem uma finalidade mais específica: ela sempre retorna um único valor. 
-
-Ela pode ser usada em expressões SQL, como em uma cláusula SELECT, WHERE ou HAVING.
-
-Uso: 
-
-Realizar cálculos, formatar dados ou manipular strings dentro de uma consulta. 
-Por exemplo, uma função pode calcular o valor do imposto sobre um produto ou formatar um nome de usuário.

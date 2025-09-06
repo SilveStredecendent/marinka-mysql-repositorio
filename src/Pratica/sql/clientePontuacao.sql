@@ -1,3 +1,7 @@
+-- Procedure que percorre todos os clientes usando um cursor
+-- e insere 1000 pontos para cada um na tabela 'pontos'.
+-- Exemplo de uso básico de cursor sem condições.
+
 DELIMITER //
 CREATE PROCEDURE clientePontuacao()
 BEGIN

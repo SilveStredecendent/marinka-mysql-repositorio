@@ -1,0 +1,28 @@
+Procedures (Procedimentos)
+O que são e por que usar
+
+Rotinas chamadas com CALL (não retornam valor direto; podem ter OUT params). São ótimas para:
+
+Fluxos multi-etapas (ex.: criar pedido → baixar estoque → registrar pagamento).
+
+Transações controladas (especialmente no PostgreSQL 11+).
+
+Automatizar tarefas administrativas (batchs, manutenção).
+
+Diferença para “SQL básico”: encapsula várias instruções, controle de fluxo (IF, LOOP), manipula transações (PostgreSQL), e centraliza a regra de negócio no BD.
+
+Passo a passo — MySQL
+DELIMITER $$
+
+CREATE PROCEDURE cria_pedido(IN p_cliente_id INT, IN p_total DECIMAL(10,2))
+BEGIN
+  START TRANSACTION;
+  INSERT INTO pedidos (cliente_id, total, criado_em)
+  VALUES (p_cliente_id, p_total, NOW());
+  -- outras operações: atualizar estoque, lançar financeiro...
+  COMMIT;
+END$$
+
+DELIMITER ;
+
+CALL cria_pedido(10, 199.90);

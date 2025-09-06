@@ -1,0 +1,42 @@
+Triggers (Gatilhos)
+O que são e por que usar
+
+São rotinas que disparam automaticamente quando ocorre um evento numa tabela (INSERT, UPDATE ou DELETE). Servem para:
+
+Auditoria (log de alterações).
+
+Regras de negócio (validar dados antes de gravar).
+
+Sincronização/calculados (atualizar campos derivados, manter histórico).
+
+Consistência além do que constraints cobrem.
+
+Diferença para “SQL básico”: em vez de depender do app executar código extra, o banco garante a lógica sempre que o evento acontece.
+
+Conceitos-chave
+
+BEFORE vs AFTER: antes de aplicar (p/ validar/ajustar) vs depois (p/ log, efeitos colaterais).
+
+ROW vs STATEMENT:
+
+PostgreSQL: ambos. FOR EACH ROW (uma vez por linha) ou FOR EACH STATEMENT (uma vez por comando).
+
+MySQL: apenas FOR EACH ROW.
+
+Registros NEW (novo) e OLD (antigo) dentro do trigger.
+
+Passo a passo — MySQL
+
+Lembre de alterar o delimitador ao criar rotinas.
+
+DELIMITER $$
+
+CREATE TRIGGER trg_log_clientes
+AFTER INSERT ON clientes
+FOR EACH ROW
+BEGIN
+  INSERT INTO clientes_log (cliente_id, nome, criado_em)
+  VALUES (NEW.id, NEW.nome, NOW());
+END$$
+
+DELIMITER ;

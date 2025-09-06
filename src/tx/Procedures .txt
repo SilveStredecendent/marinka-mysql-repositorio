@@ -1,7 +1,0 @@
-Uma Procedure é um conjunto de instruções SQL e lógica de controle que é armazenado e executado no servidor do banco de dados. 
-Elas podem aceitar parâmetros de entrada e saída.
-
-Uso: 
-
-Encapsular lógica de negócios complexa, como a criação de relatórios, 
-o processamento de pedidos ou a execução de múltiplas operações de banco de dados em uma única chamada.

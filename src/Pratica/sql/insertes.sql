@@ -1,3 +1,6 @@
+-- Inserção de dados fictícios na tabela 'cliente'.
+-- Esses registros servem como base para testar as procedures de pontuação e reajuste salarial.
+
 INSERT INTO cliente (Cod_Cli, nome_Cli, Renda_Cli) VALUES (1, 'Ana Silva', 5500.00);
 INSERT INTO cliente (Cod_Cli, nome_Cli, Renda_Cli) VALUES (2, 'Carlos Oliveira', 8200.50);
 INSERT INTO cliente (Cod_Cli, nome_Cli, Renda_Cli) VALUES (3, 'Mariana Costa', 3100.00);

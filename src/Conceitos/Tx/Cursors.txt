@@ -1,0 +1,41 @@
+Cursores
+O que são e por que usar
+
+São “ponteiros” que permitem iterar linha a linha do resultado de um SELECT dentro de uma rotina. Úteis quando:
+
+Você precisa de lógica por registro (integrações, chamadas externas).
+
+A transformação não é fácil de expressar com SQL set-based.
+
+Diferença para “SQL básico”: SQL tradicional trabalha em conjunto (melhor para performance). Cursor é imperativo e tende a ser mais lento — só use quando necessário.
+
+Passo a passo — MySQL
+
+Cursors só dentro de procedures/functions. Use handler para fim do cursor.
+
+DELIMITER $$
+
+CREATE PROCEDURE recalcula_bonus()
+BEGIN
+  DECLARE v_id INT;
+  DECLARE v_total DECIMAL(10,2);
+  DECLARE done INT DEFAULT 0;
+
+  DECLARE cur CURSOR FOR SELECT id, total_compras FROM clientes;
+  DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+  OPEN cur;
+  read_loop: LOOP
+    FETCH cur INTO v_id, v_total;
+    IF done = 1 THEN
+      LEAVE read_loop;
+    END IF;
+
+    UPDATE clientes SET bonus = v_total * 0.05 WHERE id = v_id;
+  END LOOP;
+  CLOSE cur;
+END$$
+
+DELIMITER ;
+
+CALL recalcula_bonus();

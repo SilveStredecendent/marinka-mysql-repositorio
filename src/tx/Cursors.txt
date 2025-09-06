@@ -1,6 +1,0 @@
-Um Cursor é um controle de fluxo que permite percorrer as linhas de um conjunto de resultados (o resultado de uma instrução SELECT) uma a uma. 
-Isso é útil para realizar operações em cada linha individualmente, algo que não é possível com SQL puro.
-
-Uso: 
-
-É mais comum o uso de cursores dentro de Procedures ou Functions para processar um conjunto de dados linha por linha.

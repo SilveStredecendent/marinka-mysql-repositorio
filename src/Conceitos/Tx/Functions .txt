@@ -1,0 +1,30 @@
+Functions (Funções)
+O que são e por que usar
+
+Rotinas que retornam um valor (escalares, registros, sets) e podem ser usadas dentro de queries (SELECT, WHERE, JOIN, etc.). Bons usos:
+
+Cálculos reutilizáveis (preço com imposto, score).
+
+Normalização de lógica em um ponto só.
+
+Funções de agregação/retorno de tabelas (em PostgreSQL).
+
+Diferença para “SQL básico”: você cria suas próprias funções e chama como se fossem nativas, dentro de consultas.
+
+Passo a passo — MySQL
+DELIMITER $$
+
+CREATE FUNCTION preco_com_imposto(valor DECIMAL(10,2), aliquota DECIMAL(5,2))
+RETURNS DECIMAL(10,2)
+DETERMINISTIC
+BEGIN
+  RETURN valor * (1 + aliquota);
+END$$
+
+DELIMITER ;
+
+SELECT id, preco_com_imposto(preco, 0.18) AS preco_final
+FROM produtos;
+
+
+Em MySQL, declare DETERMINISTIC quando o resultado depende somente dos parâmetros (ajuda o otimizador e replicação). Evite efeitos colaterais em funções chamadas dentro de queries.
