@@ -12,7 +12,8 @@ Automatizar tarefas administrativas (batchs, manutenção).
 Diferença para “SQL básico”: encapsula várias instruções, controle de fluxo (IF, LOOP), manipula transações (PostgreSQL), e centraliza a regra de negócio no BD.
 
 Passo a passo — MySQL
-DELIMITER $$
+
+DELIMITER //
 
 CREATE PROCEDURE cria_pedido(IN p_cliente_id INT, IN p_total DECIMAL(10,2))
 BEGIN
@@ -21,7 +22,7 @@ BEGIN
   VALUES (p_cliente_id, p_total, NOW());
   -- outras operações: atualizar estoque, lançar financeiro...
   COMMIT;
-END$$
+END//
 
 DELIMITER ;
 

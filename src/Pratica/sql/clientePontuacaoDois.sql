@@ -1,6 +1,6 @@
--- Procedure semelhante à anterior, mas agora com condição:
--- somente clientes com renda inferior a 1518 recebem 1000 pontos.
--- Demonstra como aplicar regras dentro do loop do cursor.
+--- Procedure semelhante à anterior, mas agora com condição:
+--- somente clientes com renda inferior a 1518 recebem 1000 pontos.
+--- Demonstra como aplicar regras dentro do loop do cursor.
 
 DELIMITER //
 CREATE PROCEDURE clientePontuacaoDois()

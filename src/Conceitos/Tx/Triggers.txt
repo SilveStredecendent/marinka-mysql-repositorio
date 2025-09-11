@@ -29,7 +29,7 @@ Passo a passo — MySQL
 
 Lembre de alterar o delimitador ao criar rotinas.
 
-DELIMITER $$
+DELIMITER //
 
 CREATE TRIGGER trg_log_clientes
 AFTER INSERT ON clientes
@@ -37,6 +37,6 @@ FOR EACH ROW
 BEGIN
   INSERT INTO clientes_log (cliente_id, nome, criado_em)
   VALUES (NEW.id, NEW.nome, NOW());
-END$$
+END//
 
 DELIMITER ;

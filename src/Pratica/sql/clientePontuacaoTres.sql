@@ -1,6 +1,6 @@
--- Versão mais otimizada da procedure anterior.
--- O filtro de renda já é feito no SELECT do cursor, evitando IF no loop.
--- Insere 1000 pontos apenas para clientes com baixa renda (<1518).
+--- Versão mais otimizada da procedure anterior.
+--- O filtro de renda já é feito no SELECT do cursor, evitando IF no loop.
+--- Insere 1000 pontos apenas para clientes com baixa renda (<1518).
 
 DELIMITER //
 CREATE PROCEDURE clientePontuacaoTres()

@@ -12,14 +12,15 @@ Funções de agregação/retorno de tabelas (em PostgreSQL).
 Diferença para “SQL básico”: você cria suas próprias funções e chama como se fossem nativas, dentro de consultas.
 
 Passo a passo — MySQL
-DELIMITER $$
+
+DELIMITER //
 
 CREATE FUNCTION preco_com_imposto(valor DECIMAL(10,2), aliquota DECIMAL(5,2))
 RETURNS DECIMAL(10,2)
 DETERMINISTIC
 BEGIN
   RETURN valor * (1 + aliquota);
-END$$
+END//
 
 DELIMITER ;
 

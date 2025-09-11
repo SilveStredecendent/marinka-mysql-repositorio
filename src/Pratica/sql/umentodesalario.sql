@@ -1,8 +1,8 @@
--- Procedure que aplica reajuste de salário de acordo com a renda:
--- - Se a renda for menor que 1518 → aumenta em 30%.
--- - Caso contrário → aumenta em 5%.
+--- Procedure que aplica reajuste de salário de acordo com a renda:
+--- Se a renda for menor que 1518 → aumenta em 30%.
+--- Caso contrário → aumenta em 5%.
 
--- Exemplo prático do uso de CASE dentro de um UPDATE.
+--- Exemplo prático do uso de CASE dentro de um UPDATE.
 
 DELIMITER //
 CREATE PROCEDURE aumentodesalario()

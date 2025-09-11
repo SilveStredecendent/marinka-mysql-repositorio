@@ -13,7 +13,7 @@ Passo a passo — MySQL
 
 Cursors só dentro de procedures/functions. Use handler para fim do cursor.
 
-DELIMITER $$
+DELIMITER //
 
 CREATE PROCEDURE recalcula_bonus()
 BEGIN
@@ -34,7 +34,7 @@ BEGIN
     UPDATE clientes SET bonus = v_total * 0.05 WHERE id = v_id;
   END LOOP;
   CLOSE cur;
-END$$
+END//
 
 DELIMITER ;
 
